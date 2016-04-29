@@ -5,12 +5,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1397D266-C9BD-4F25-B837-6955CF44F373}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{667A3165-B0F5-407F-8630-9454561E3EA9}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WindTurbine", "src\WindTurbine\WindTurbine.xproj", "{5D81F9D6-B6E5-477F-A526-407C0BFDFB84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{69A1C548-3343-4B73-9862-E47A29976F5C}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WindTurbine.Tests", "WindTurbine.Tests\WindTurbine.Tests.xproj", "{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,11 +21,16 @@ Global
 		{5D81F9D6-B6E5-477F-A526-407C0BFDFB84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5D81F9D6-B6E5-477F-A526-407C0BFDFB84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5D81F9D6-B6E5-477F-A526-407C0BFDFB84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{5D81F9D6-B6E5-477F-A526-407C0BFDFB84} = {1397D266-C9BD-4F25-B837-6955CF44F373}
+		{21ACDDE8-C9BA-4B4F-95DE-CB99729B8719} = {69A1C548-3343-4B73-9862-E47A29976F5C}
 	EndGlobalSection
 EndGlobal
