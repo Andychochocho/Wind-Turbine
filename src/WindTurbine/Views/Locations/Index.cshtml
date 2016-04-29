@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Location";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<WindTurbine.Models.Location>
+@using System.Security.Claims
+
+
+<h4>Names:</h4>
+@if (Model.Any())
+    {
+        @foreach (var listLocation in Model)
+        {
+            <p>@Html.DisplayFor(modelLocation => listLocation.Name)</p>
+            <hr />
+        }
+    }
+    else
+    {
+        <p>No locations have been added yet!</p>
+    }

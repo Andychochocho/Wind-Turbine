@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using WindTurbine.Models;
 using Microsoft.AspNet.Identity;
 using WindTurbine.ViewModels;
+using System.Security.Claims;
 
 namespace WindTurbine.Controllers
 {
@@ -22,9 +23,10 @@ namespace WindTurbine.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            return View(_db.Locations.Where(x => x.User.Id == currentUser.Id));
         }
 
         public IActionResult Register()

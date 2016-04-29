@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model WindTurbine.Models.Location
+
+<h3>Details</h3>
+<hr />
+Description: @Html.DisplayFor(model => model.Name)
+<p>@Html.ActionLink("Back to the list", "Index")</p>
