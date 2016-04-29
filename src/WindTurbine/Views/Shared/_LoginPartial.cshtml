@@ -1,0 +1,19 @@
+﻿@using System.Security.Claims
+
+@if (User.IsSignedIn())
+{
+    @*@Html.ActionLink("Log Off", "LogOff", "Account")*@
+    //Action link is routing to /account/logoff can only get log off to work with the button below
+
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register")</li>
+        <li>@Html.ActionLink("Log in", "Login")</li>
+    </ul>
+}

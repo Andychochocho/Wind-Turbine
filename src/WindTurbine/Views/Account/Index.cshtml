@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+<h2>Wind Turbine</h2>
+@if (User.IsSignedIn())
+{
+    <div style="width:1000px;overflow:hidden;height:1000px;max-width:100%;">
+        <div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=epicodus&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="embed-map-code" rel="nofollow" href="https://www.hostingreviews.website" id="enable-map-info">HostingReviews</a>
+        <style>
+            #my-map-display img {
+                max-width: none !important;
+                background: none !important;
+            }
+        </style>
+    </div>
+    <script src="https://www.hostingreviews.website/google-maps-authorization.js?id=7a897d85-d19f-eafa-4ffd-5eb1edd69431&c=embed-map-code&u=1461363313" defer="defer" async="async"></script>
+}
+
+else
+{
+    <p>You are currently not logged in. Register/Login to access our services.</p>
+}

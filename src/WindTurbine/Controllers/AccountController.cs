@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using WindTurbine.Models;
 using Microsoft.AspNet.Identity;
+using WindTurbine.ViewModels;
 
 namespace WindTurbine.Controllers
 {
@@ -25,5 +26,53 @@ namespace WindTurbine.Controllers
         {
             return View();
         }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(RegisterViewModel model)
+        {
+            var user = new ApplicationUser { UserName = model.UserName };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel model)
+        {
+            SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, isPersistent: true, lockoutOnFailure: false);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> LogOff()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }

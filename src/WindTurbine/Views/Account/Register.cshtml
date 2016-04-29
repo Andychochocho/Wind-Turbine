@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using WindTurbine.ViewModels
+
+@model RegisterViewModel
+
+<h2>Register a new user!</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    @Html.LabelFor(m => m.UserName)
+    @Html.TextBoxFor(m => m.UserName)
+    <br /><br />
+    @Html.LabelFor(m => m.Email)
+    @Html.TextBoxFor(m => m.Email)
+    <br /><br />
+    @Html.LabelFor(m => m.Password)
+    @Html.PasswordFor(m => m.Password)
+    <br /><br />
+    @Html.LabelFor(m => m.ConfirmPassword)
+    @Html.PasswordFor(m => m.ConfirmPassword)
+    <br /><br />
+    <input type="submit" value="Register" />
+}
