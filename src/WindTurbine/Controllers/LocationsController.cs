@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Authorization;
 using System.Security.Claims;
 using WindTurbine.Models;
 using Microsoft.AspNet.Identity;
-using Microsoft.Data.Entity;
 
 namespace WindTurbine.Controllers
 {
@@ -32,7 +29,7 @@ namespace WindTurbine.Controllers
             return View(_db.Locations.ToList());
         }
 
-        public IActionResult Details(int id)
+    public IActionResult Details(int id)
         {
             var thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
             return View(thisLocation);

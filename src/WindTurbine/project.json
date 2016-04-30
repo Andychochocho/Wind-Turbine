@@ -1,4 +1,4 @@
-﻿{
+{
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
@@ -22,7 +22,12 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "Forecast.io": "1.0.9",
+        "gmaps-api-net": "0.13.21"
+      }
+    },
     "dnxcore50": { }
   },
 
