@@ -17,4 +17,5 @@ namespace WindTurbine.Models
         public string Longitude { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
+
 }
