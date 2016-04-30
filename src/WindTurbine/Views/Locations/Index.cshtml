@@ -6,12 +6,13 @@
 @model IEnumerable<WindTurbine.Models.Location>
 @using System.Security.Claims
 
-<h2>Locations: </h2>
+<h2>Locations</h2>
 @if (Model.Any())
     {
         @foreach (var listLocation in Model)
         {
-            <p>@Html.DisplayFor(modelLocation => listLocation.Name) | @Html.ActionLink("Details", "Details", new { id = listLocation.LocationId })</p>
+            <p>Name: @Html.DisplayFor(modelLocation => listLocation.Name)</p>
+            <p>@Html.ActionLink("Details", "Details", new { id = listLocation.LocationId })</p>
             <hr />
         }
     }

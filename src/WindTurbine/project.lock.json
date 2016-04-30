@@ -126,6 +126,29 @@
           "lib/dnx451/EntityFramework.Relational.Design.dll": {}
         }
       },
+      "Forecast.io/1.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Forecast.io.45.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Forecast.io.45.dll": {}
+        }
+      },
+      "gmaps-api-net/0.13.21": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.0"
+        },
+        "compile": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
+        }
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -4249,6 +4272,29 @@
           "lib/dnx451/EntityFramework.Relational.Design.dll": {}
         }
       },
+      "Forecast.io/1.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Forecast.io.45.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Forecast.io.45.dll": {}
+        }
+      },
+      "gmaps-api-net/0.13.21": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.0"
+        },
+        "compile": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
+        }
+      },
       "Ix-Async/1.2.5": {
         "type": "package",
         "frameworkAssemblies": [
@@ -5998,6 +6044,29 @@
         },
         "runtime": {
           "lib/dnx451/EntityFramework.Relational.Design.dll": {}
+        }
+      },
+      "Forecast.io/1.0.9": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Forecast.io.45.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Forecast.io.45.dll": {}
+        }
+      },
+      "gmaps-api-net/0.13.21": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "4.5.0"
+        },
+        "compile": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/net/Google.Maps.dll": {},
+          "lib/net/Newtonsoft.Json.dll": {}
         }
       },
       "Ix-Async/1.2.5": {
@@ -13568,6 +13637,31 @@
         "lib/netcore50/_._"
       ]
     },
+    "Forecast.io/1.0.9": {
+      "type": "package",
+      "sha512": "WpVLeKPR6PBIQ/InFXPj6ombUfnEX+OgbYKsalEMLn2AqbVng/GpHVhgQCErAwWQ76aW7uz8zFgoHv+JK5D29g==",
+      "files": [
+        "Forecast.io.1.0.9.nupkg",
+        "Forecast.io.1.0.9.nupkg.sha512",
+        "Forecast.io.nuspec",
+        "lib/net40/Forecast.io.40.dll",
+        "lib/net45/Forecast.io.45.dll",
+        "nuget.exe"
+      ]
+    },
+    "gmaps-api-net/0.13.21": {
+      "type": "package",
+      "sha512": "ooEnQnHDtyGtl5hpxNxW0CzcuZ5xNATRXLwpkVtoDk/cX/E1jlvp9rXPCS+e47mN8VChZ7Bn3XPpTQ7ZiGepiw==",
+      "files": [
+        "gmaps-api-net.0.13.21.nupkg",
+        "gmaps-api-net.0.13.21.nupkg.sha512",
+        "gmaps-api-net.nuspec",
+        "lib/net/Google.Maps.dll",
+        "lib/net/Google.Maps.pdb",
+        "lib/net/Newtonsoft.Json.dll",
+        "lib/net/Newtonsoft.Json.xml"
+      ]
+    },
     "Ix-Async/1.2.5": {
       "type": "package",
       "sha512": "8EXO8q7cpDUH9G2q+UOPOO/6uZ9aN7mx/4xjFIfkp+qLWVJiYuglkRhjY8Ggs2CucXzHR8GHnovJKB5yQoYaJg==",
@@ -18890,7 +18984,10 @@
       "Microsoft.AspNet.Server.Kestrel >= 1.0.0-rc1-final",
       "Microsoft.AspNet.StaticFiles >= 1.0.0-rc1-final"
     ],
-    "DNX,Version=v4.5.1": [],
+    "DNX,Version=v4.5.1": [
+      "Forecast.io >= 1.0.9",
+      "gmaps-api-net >= 0.13.21"
+    ],
     "DNXCore,Version=v5.0": []
   }
 }
