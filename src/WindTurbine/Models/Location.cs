@@ -11,7 +11,7 @@ namespace WindTurbine.Models
     public class Location
     {
         [Key]
-        public int Locationid { get; set; }
+        public int LocationId { get; set; }
         public string Name { get; set; }
         public virtual ApplicationUser User { get; set; }
     }

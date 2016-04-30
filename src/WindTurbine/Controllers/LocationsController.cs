@@ -7,6 +7,7 @@ using Microsoft.AspNet.Authorization;
 using System.Security.Claims;
 using WindTurbine.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.Data.Entity;
 
 namespace WindTurbine.Controllers
 {
@@ -28,7 +29,28 @@ namespace WindTurbine.Controllers
         public async Task<IActionResult> Index()
         {
             var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
-            return View(_db.Locations.Where(x => x.User.Id == currentUser.Id).ToList());
+            return View(_db.Locations.ToList());
+        }
+
+        public IActionResult Details(int id)
+        {
+            var thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
+            return View(thisLocation);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Location location)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            location.User = currentUser;
+            _db.Locations.Add(location);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }
