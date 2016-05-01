@@ -10,16 +10,23 @@
 {
     @Html.HiddenFor(model => model.Time, new { @Value = @DateTime.Now.ToShortDateString() })
 
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-    <br /><br />
-    @Html.LabelFor(model => model.Latitude)
-    @Html.EditorFor(model => model.Latitude)
-    <br /><br />
-    @Html.LabelFor(model => model.Longitude)
-    @Html.EditorFor(model => model.Longitude)
-    <br /><br />
-    <input type="submit" value="Create" />
+    <div class="locationCreateForm">
+        <p>
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Latitude)
+            @Html.EditorFor(model => model.Latitude)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Longitude)
+            @Html.EditorFor(model => model.Longitude)
+        </p>
+        <input type="submit" value="Create" />
+    </div>
 }
 <br />
-@Html.ActionLink("Back to List", "Index")
+<div class="locationCreateForm">
+    @Html.ActionLink("Back to List", "Index")
+</div>

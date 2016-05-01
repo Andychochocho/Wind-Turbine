@@ -31,3 +31,7 @@ h2 {
     text-decoration: underline;
     color: darkorange;
 }
+
+.locationCreateForm {
+    text-align: center;
+}
