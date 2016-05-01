@@ -8,9 +8,10 @@ using WindTurbine.Models;
 namespace WindTurbine.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160430233958_timestamp")]
+    partial class timestamp
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -151,13 +152,13 @@ namespace WindTurbine.Migrations
                     b.Property<int>("LocationId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("Date");
-
                     b.Property<string>("Latitude");
 
                     b.Property<string>("Longitude");
 
                     b.Property<string>("Name");
+
+                    b.Property<DateTime>("Time");
 
                     b.Property<string>("UserId");
 

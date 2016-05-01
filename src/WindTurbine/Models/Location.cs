@@ -15,7 +15,9 @@ namespace WindTurbine.Models
         public string Name { get; set; }
         public string Latitude { get; set; }
         public string Longitude { get; set; }
+        public DateTime Time { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
+
 
 }
