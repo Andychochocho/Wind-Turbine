@@ -8,8 +8,8 @@ using WindTurbine.Models;
 namespace WindTurbine.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160429210058_initial")]
-    partial class initial
+    [Migration("20160501224620_timestamp")]
+    partial class timestamp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -147,6 +147,26 @@ namespace WindTurbine.Migrations
                     b.HasAnnotation("Relational:TableName", "AspNetUsers");
                 });
 
+            modelBuilder.Entity("WindTurbine.Models.Location", b =>
+                {
+                    b.Property<int>("LocationId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Latitude");
+
+                    b.Property<string>("Longitude");
+
+                    b.Property<string>("Name");
+
+                    b.Property<DateTime>("Time");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("LocationId");
+
+                    b.HasAnnotation("Relational:TableName", "Locations");
+                });
+
             modelBuilder.Entity("Microsoft.AspNet.Identity.EntityFramework.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNet.Identity.EntityFramework.IdentityRole")
@@ -174,6 +194,13 @@ namespace WindTurbine.Migrations
                         .WithMany()
                         .HasForeignKey("RoleId");
 
+                    b.HasOne("WindTurbine.Models.ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("WindTurbine.Models.Location", b =>
+                {
                     b.HasOne("WindTurbine.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId");

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.AspNet.Authorization;
@@ -45,7 +46,11 @@ namespace WindTurbine.Controllers
         {
             var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
             location.User = currentUser;
+
+            DateTime timeStamp = DateTime.Now;
+            location.Time = timeStamp;
             _db.Locations.Add(location);
+
             _db.SaveChanges();
             return RedirectToAction("Index");
         }
