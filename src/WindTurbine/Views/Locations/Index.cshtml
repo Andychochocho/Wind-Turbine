@@ -6,19 +6,21 @@
 @model IEnumerable<WindTurbine.Models.Location>
 @using System.Security.Claims
 
-<h2>Locations</h2>
 @if (Model.Any())
-    {
-        @foreach (var listLocation in Model)
-        {
+{
+    <h2 id="locationTitle">@Html.ActionLink("Create a new location", "Create")</h2>
+
+    @foreach (var listLocation in Model)
+    {   <div class="locationItems">
             <p>Name: @Html.DisplayFor(modelLocation => listLocation.Name)</p>
             <p>@Html.ActionLink("Details", "Details", new { id = listLocation.LocationId })</p>
-            <hr />
-        }
+        </div>
+        <hr />
     }
+}
 
 else
-    {
+{   <div class="locationItems">
         <p>No locations have been added yet!</p>
-    }
-@Html.ActionLink("Create a new location", "Create")
+    </div>
+}

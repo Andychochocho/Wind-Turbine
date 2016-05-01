@@ -12,7 +12,7 @@
     <nav class="navbar navbar-default navbar-fixed-top" id="header">
         <div class="container-fluid">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/Account">Wind Turbine</a>
+                <a class="navbar-brand" href="/">Wind Turbine</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -22,8 +22,11 @@
             </div>
         </div>
     </nav>
-    <div>
+    <div class="container">
         @RenderBody()
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <p id="footer">&copy; @DateTime.Now.Year - WindTurbine. All Rights Reserved.</p>
+        </nav>
     </div>
 </body>
 </html>
