@@ -21,7 +21,11 @@
 }
 
 else
-{   <div class="locationItems">
+{
+    <div id="locationTitle">
+        <h3>@Html.ActionLink("Create a new location", "Create")</h3>
+    </div>
+    <div class="locationItems">
         <p>No locations have been added yet!</p>
     </div>
 }
