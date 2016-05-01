@@ -2,13 +2,8 @@
 
 @if (User.IsSignedIn())
 {
-    @*@Html.ActionLink("Log Off", "LogOff", "Account")*@
-    //Action link is routing to /account/logoff can only get log off to work with the button below
+    @Html.ActionLink("Log Off", "LogOff", "Account")
 
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
 }
 else
 {
