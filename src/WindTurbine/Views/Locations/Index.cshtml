@@ -7,8 +7,9 @@
 @using System.Security.Claims
 
 @if (Model.Any())
-{
-    <h2 id="locationTitle">@Html.ActionLink("Create a new location", "Create")</h2>
+{   <div id="locationTitle">
+        <h3>@Html.ActionLink("Create a new location", "Create")</h3>
+    </div>
 
     @foreach (var listLocation in Model)
     {   <div class="locationItems">

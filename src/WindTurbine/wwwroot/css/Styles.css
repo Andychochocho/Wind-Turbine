@@ -23,5 +23,11 @@ h2 {
 }
 
 #locationTitle {
+    text-align: center;
     padding-bottom: 30px;
+}
+
+#locationTitle a {
+    text-decoration: underline;
+    color: darkorange;
 }
