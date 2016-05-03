@@ -3,12 +3,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IEnumerable<WindTurbine.Models.Location>
+@model WindTurbine.Models.Location
 @using System.Security.Claims
 
 @if (User.IsSignedIn())
 {
     <h2>Locations</h2>
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="locationCreateForm">
+            <p>
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Latitude)
+                @Html.EditorFor(model => model.Latitude)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Longitude)
+                @Html.EditorFor(model => model.Longitude)
+            </p>
+            <input type="submit" value="Create" />
+        </div>
+    }
+
     <div style="width:1500px;overflow:hidden;height:1000px;max-width:100%;">
     <div id="my-map-display" style="height:100%; width:100%;max-width:100%;"><iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=epicodus&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe></div><a class="embed-map-code" rel="nofollow" href="https://www.hostingreviews.website" id="enable-map-info">HostingReviews</a>
     <style>

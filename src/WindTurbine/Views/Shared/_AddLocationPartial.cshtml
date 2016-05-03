@@ -1,0 +1,21 @@
+﻿@model WindTurbine.Models.Location
+
+@using (Html.BeginForm())
+{
+
+    <div class="locationCreateForm">
+        <p>
+            @Html.LabelFor(model => model.Name)
+            @Html.EditorFor(model => model.Name)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Latitude)
+            @Html.EditorFor(model => model.Latitude)
+        </p>
+        <p>
+            @Html.LabelFor(model => model.Longitude)
+            @Html.EditorFor(model => model.Longitude)
+        </p>
+        <input type="submit" value="Create" />
+    </div>
+}
