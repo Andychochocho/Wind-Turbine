@@ -30,11 +30,11 @@ namespace WindTurbine.Tests
             var location = new Location();
 
             //Act
-            location.Latitude = "123";
+            location.Latitude = 123.321;
             var result = location.Latitude;
 
             //Assert
-            Assert.Equal("123", result);
+            Assert.Equal(123.321, result);
         }
 
         [Fact]
@@ -44,11 +44,11 @@ namespace WindTurbine.Tests
             var location = new Location();
 
             //Act
-            location.Longitude = "321";
+            location.Longitude = 321.123;
             var result = location.Longitude;
 
             //Assert
-            Assert.Equal("321", result);
+            Assert.Equal(321.123, result);
         }
     }
 }
