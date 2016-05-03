@@ -4,7 +4,7 @@ using Microsoft.Data.Entity.Migrations;
 
 namespace WindTurbine.Migrations
 {
-    public partial class timestamp : Migration
+    public partial class latLong : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,6 +13,14 @@ namespace WindTurbine.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserLogin<string>_ApplicationUser_UserId", table: "AspNetUserLogins");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_ApplicationUser_UserId", table: "AspNetUserRoles");
+            migrationBuilder.AlterColumn<double>(
+                name: "Longitude",
+                table: "Locations",
+                nullable: false);
+            migrationBuilder.AlterColumn<double>(
+                name: "Latitude",
+                table: "Locations",
+                nullable: false);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",
@@ -57,6 +65,14 @@ namespace WindTurbine.Migrations
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserLogin<string>_ApplicationUser_UserId", table: "AspNetUserLogins");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_IdentityRole_RoleId", table: "AspNetUserRoles");
             migrationBuilder.DropForeignKey(name: "FK_IdentityUserRole<string>_ApplicationUser_UserId", table: "AspNetUserRoles");
+            migrationBuilder.AlterColumn<string>(
+                name: "Longitude",
+                table: "Locations",
+                nullable: true);
+            migrationBuilder.AlterColumn<string>(
+                name: "Latitude",
+                table: "Locations",
+                nullable: true);
             migrationBuilder.AddForeignKey(
                 name: "FK_IdentityRoleClaim<string>_IdentityRole_RoleId",
                 table: "AspNetRoleClaims",

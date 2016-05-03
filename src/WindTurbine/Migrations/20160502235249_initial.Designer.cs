@@ -8,8 +8,8 @@ using WindTurbine.Models;
 namespace WindTurbine.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20160501224620_timestamp")]
-    partial class timestamp
+    [Migration("20160502235249_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
