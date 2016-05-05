@@ -49,3 +49,7 @@ h2 {
     margin-bottom: 20px;
     text-align:center;
 }
+
+body.modal-open div.modal-backdrop { 
+    z-index: 0;
+}
