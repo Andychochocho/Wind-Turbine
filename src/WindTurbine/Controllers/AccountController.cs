@@ -23,10 +23,23 @@ namespace WindTurbine.Controllers
             _db = db;
         }
 
-        public IActionResult Index(Location location)
+        public IActionResult Index()
         {
-            var thisLocation = _db.Locations.FirstOrDefault(locations => locations.Name == location.Name);
-            return View(thisLocation);
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index(Location location)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            location.User = currentUser;
+
+            DateTime timeStamp = DateTime.Now;
+            location.Time = timeStamp;
+            _db.Locations.Add(location);
+
+            _db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         public IActionResult Register()
