@@ -8,7 +8,6 @@
 
 @if (Model.Any())
 {   <div id="locationTitle">
-
         <h2 id="newLocationIndex">Your Locations</h2>
     </div>
 
@@ -30,42 +29,3 @@ else
         <p>No locations have been added yet!</p>
     </div>
 }
-
-<!-- Button trigger modal -->
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Add A New Location</h4>
-            </div>
-            <div class="modal-body">
-                @using (Html.BeginForm())
-                {
-
-                    <div class="locationCreateForm">
-                        @*<p>
-                                @Html.LabelFor(model => model.Name)
-                                @Html.EditorFor(model => model.Name)
-                            </p>
-                            <p>
-                                @Html.LabelFor(model => model.Latitude)
-                                @Html.EditorFor(model => model.Latitude)
-                            </p>
-                            <p>
-                                @Html.LabelFor(model => model.Longitude)
-                                @Html.EditorFor(model => model.Longitude)
-                            </p>*@
-                        <input type="submit" value="Create" class="btn btn-success" />
-                    </div>
-                }
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>

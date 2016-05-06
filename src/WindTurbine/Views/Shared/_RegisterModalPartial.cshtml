@@ -5,26 +5,27 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Log-in</h4>
+                <h4 class="modal-title">Register</h4>
             </div>
             @using (Html.BeginForm("Register", "Account", FormMethod.Post))
             {
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                <br /><br />
-                @Html.LabelFor(m => m.Email)
-                @Html.TextBoxFor(m => m.Email)
-                <br /><br />
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
-                <br /><br />
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
-                <br /><br />
-                <input type="submit" value="Register" />
+                <div class="modal-center">
+                    @Html.HiddenFor(m => m.UserName)
+                    @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username" })
+                    <br /><br />
+                    @Html.HiddenFor(m => m.Email)
+                    @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                    <br /><br />
+                    @Html.HiddenFor(m => m.Password)
+                    @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                    <br /><br />
+                    @Html.HiddenFor(m => m.ConfirmPassword)
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirm Password" })
+                    <br /><br />
+                </div>
                     <div class="modal-footer">
                         <a href="#" data-dismiss="modal" class="btn">Close</a>
-                        <input type="submit" value="Log in" class="btn btn-primary" />
+                        <input type="submit" value="Register" class="btn btn-primary" />
                     </div>
             }
         </div>

@@ -12,8 +12,11 @@ namespace WindTurbine.Models
     {
         [Key]
         public int LocationId { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public double Latitude { get; set; }
+        [Required]
         public double Longitude { get; set; }
         public DateTime Time { get; set; }
         public virtual ApplicationUser User { get; set; }

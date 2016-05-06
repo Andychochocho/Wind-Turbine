@@ -155,7 +155,8 @@ namespace WindTurbine.Migrations
 
                     b.Property<double>("Longitude");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.Property<DateTime>("Time");
 
