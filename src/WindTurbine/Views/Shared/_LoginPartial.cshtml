@@ -9,12 +9,10 @@ else
 {
     <nav class="navbar">
         <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="#myModal" data-toggle="modal" data-target="#myModal">Login</a>
-            </li>
+            <li><a href="#modalRegister" data-toggle="modal" data-target="#modalRegister">Register</a></li>
+            <li><a href="#myModal" data-toggle="modal" data-target="#myModal">Login</a></li>
         </ul>
     </nav>
     @Html.Partial("_LoginModalPartial")
+    @Html.Partial("_RegisterModalPartial")
 }
-
-
