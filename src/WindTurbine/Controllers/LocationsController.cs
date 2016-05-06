@@ -24,13 +24,14 @@ namespace WindTurbine.Controllers
             _db = db;
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
-            return View(_db.Locations.Where(x => x.User.Id == currentUser.Id));
+            //var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+            //
+            return View("Index", _db.Locations.ToList());
         }
 
-    public IActionResult Details(int id)
+        public IActionResult Details(int id)
         {
             var thisLocation = _db.Locations.FirstOrDefault(locations => locations.LocationId == id);
             return View(thisLocation);
