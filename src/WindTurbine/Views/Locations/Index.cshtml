@@ -7,8 +7,31 @@
 @using System.Security.Claims
 
 @if (Model.Any())
-{   <div id="locationTitle">
+{
+    <div id="locationTitle">
         <h2 id="newLocationIndex">Your Locations</h2>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button id="locationAddButtonView" class="btn btn-success" data-toggle="modal" data-target="#myModalTitle">
+        Add new location!
+    </button>
+
+    <!-- Modal -->
+    <div class="modal" fade" id="myModalTitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Add A New Location</h4>
+                </div>
+                <div class="modal-body" id="showModalForm">
+                    @*Where the content of form goes*@
+                </div>
+            </div>
+        </div>
     </div>
 
     @foreach (var listLocation in Model)
@@ -29,3 +52,19 @@ else
         <p>No locations have been added yet!</p>
     </div>
 }
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#locationAddButtonView').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Create")',
+                success: function (result) {
+                    $('#showModalForm').html(result);
+                }
+            });
+        });
+    });
+</script>
+

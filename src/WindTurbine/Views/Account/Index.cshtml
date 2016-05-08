@@ -10,7 +10,7 @@
 {
     <h2>Locations</h2>
 
-    <!-- Button trigger modal -->
+     <!-- Button trigger modal -->
     <button id="newLocationIndex" class="btn btn-success" data-toggle="modal" data-target="#myModalTitle">
         Add new location!
     </button>
@@ -25,8 +25,8 @@
                     </button>
                     <h4 class="modal-title" id="myModalLabel">Add A New Location</h4>
                 </div>
-                <div class="modal-body">
-                    @Html.Partial("~/Views/Shared/_AddLocationPartial.cshtml")
+                <div class="modal-body" id="showModalForm">
+                @Html.Partial("/Views/Shared/_AddLocationPartial")
                 </div>
             </div>
         </div>
@@ -48,38 +48,3 @@ else
 {
     <h2 id="registerStatement"> You are currently not logged in. Register / Login to access our services.</h2>
 }
-
-
-
-
-
-
-
-
-
-
-
-
-@*@if (Model.Any())
-{   <div id="locationTitle">
-        <h2 id="newLocationIndex">Your Locations</h2>
-    </div>
-
-    @foreach (var listLocation in Model)
-    {   <div class="locationItems">
-            <p>Name: @Html.DisplayFor(modelLocation => listLocation.Name)</p>
-            <p>@Html.ActionLink("Details", "Details", new { id = listLocation.LocationId })</p>
-        </div>
-        <hr />
-    }
-}
-
-else
-{
-    <div id="locationTitle">
-        <h3>Your locations</h3>
-    </div>
-    <div class="locationItems">
-        <p>No locations have been added yet!</p>
-    </div>
-}*@

@@ -21,6 +21,4 @@ namespace WindTurbine.Models
         public DateTime Time { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
-
-
 }
