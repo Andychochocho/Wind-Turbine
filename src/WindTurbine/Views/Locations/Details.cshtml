@@ -31,7 +31,7 @@ Longitude: @Html.DisplayFor(model => model.Longitude)
 
             $.getJSON("https://api.forecast.io/forecast/" + "@WindTurbine.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
                 console.log(json);
-                $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + json.currently.windSpeed + " miles/hour" + '</p>');
+                $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + json.currently.windSpeed + " miles/hour" + '<br /><br />' + "Air Density: " + ((json.currently.pressure * 100)/(287.05 * ((json.currently.temperature + 497.67)*(5/9)))).toFixed(3) + " kg/m³" +'</p>');
             });
         }
         result();
