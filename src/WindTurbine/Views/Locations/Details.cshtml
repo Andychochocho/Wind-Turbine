@@ -9,11 +9,31 @@
 <hr />
 Name: @Html.DisplayFor(model => model.Name)
 <br /><br />
+@Html.DisplayFor(model => model.Time)
+<br /><br />
 Latitude: @Html.DisplayFor(model => model.Latitude)
 <br /><br />
 Longitude: @Html.DisplayFor(model => model.Longitude)
-<br /><br />
-@Html.DisplayFor(model => model.Time)
-<br /><br />
+<hr />
+
+<div class="result">
+</div>
+
+<br />
 <p>@Html.ActionLink("Back to the list", "Index")</p>
 
+<script type="text/javascript">
+    $(document).ready(function () {
+        var result = function () {
+            var lat = @Html.DisplayFor(model => model.Latitude);
+            var long = @Html.DisplayFor(model => model.Longitude);
+            console.log(lat, long);
+
+            $.getJSON("https://api.forecast.io/forecast/" + "@WindTurbine.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
+                console.log(json);
+                $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + json.currently.windSpeed + " miles/hour" + '</p>');
+            });
+        }
+        result();
+    });
+</script>

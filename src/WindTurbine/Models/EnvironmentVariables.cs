@@ -7,6 +7,6 @@ namespace WindTurbine.Models
 {
     public class EnvironmentVariables
     {
-        public static string forecastKey = "ApiKey";
+        public static string forecastKey = "186bd640fdc31bed54306f6810850e4c";
     }
 }

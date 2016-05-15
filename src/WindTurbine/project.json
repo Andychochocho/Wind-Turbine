@@ -1,11 +1,14 @@
 {
-  "version": "1.0.0-*",
+  "version": "2.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
+    "EntityFramework.Relational": "7.0.0-rc1-final",
+    "Forecast.io": "1.0.9",
     "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
     "EntityFramework.Core": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "EntityFramework.Commands": "7.0.0-rc1-final",
@@ -13,7 +16,8 @@
     "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-rc1-final",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
     "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final"
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+    "Microsoft.NETCore.Targets.DNXCore": "5.0.0-beta-23516"
   },
 
   "commands": {
@@ -24,11 +28,8 @@
   "frameworks": {
     "dnx451": {
       "dependencies": {
-        "Forecast.io": "1.0.9",
-        "gmaps-api-net": "0.13.21"
       }
-    },
-    "dnxcore50": { }
+    }
   },
 
   "exclude": [
