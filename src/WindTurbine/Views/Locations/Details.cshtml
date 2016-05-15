@@ -20,7 +20,7 @@ Longitude: @Html.DisplayFor(model => model.Longitude)
 </div>
 
 <br />
-<p>@Html.ActionLink("Back to the list", "Index")</p>
+<p>@Html.ActionLink("Back to your locations", "Index")</p>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -33,11 +33,8 @@ Longitude: @Html.DisplayFor(model => model.Longitude)
                 var currentWindSpeedSI = currentWindSpeed * .44704;
                 var currentAirPressure =json.currently.pressure;
                 var currentTemperature = json.currently.temperature;
-                var currentAirDensity = (currentAirPressure * 100)/(287.05 * ((currentTemperature + 497.67)*(5/9)))
-
-                console.log("First part: " + (.5) * currentAirDensity * (Math.pow(32.25, 2) * Math.PI))
-                console.log("Second part: " + Math.pow(currentWindSpeedSI, 3) * (.4))
-                console.log(currentWindSpeedSI)
+                var currentKelvin = (json.currently.temperature + 459.67) * (5/9);
+                var currentAirDensity = (currentAirPressure * 100)/(287.05 * currentKelvin)
 
                 $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + currentWindSpeed + " miles/hour" + '<br /><br />' + "Air Density: " + currentAirDensity.toFixed(3) + " kg/m³" + '<br /><br />' + "Kinetic Energy: " + ((.5) * currentAirDensity * (Math.pow(32.25, 2) * Math.PI) * Math.pow(currentWindSpeedSI, 3) * (.4)).toFixed(2) + " watts" + '</p>');
             });
