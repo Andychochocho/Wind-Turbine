@@ -36,6 +36,10 @@ No known bugs!
 * Visual Studio 2015
 * SSMS 
 
+## Special Thanks
+<h6>Formula for air density: http://www.brisbanehotairballooning.com.au/calculate-air-density/</h6>
+<h6>The Royal Academy of Engineering: http://www.raeng.org.uk/publications/other/23-wind-turbine</h6>
+
 ## Support and contact details
 If you have any comments/concerns, or would just like to talk to me please contact me at cho-andrew@hotmail.com
 
