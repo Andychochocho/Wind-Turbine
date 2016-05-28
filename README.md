@@ -35,6 +35,8 @@ No known bugs!
 * MVC 6
 * Visual Studio 2015
 * SSMS 
+* Javascript 
+* jQuery
 
 ## Special Thanks
 <h6>Formula for air density: http://www.brisbanehotairballooning.com.au/calculate-air-density/</h6>
