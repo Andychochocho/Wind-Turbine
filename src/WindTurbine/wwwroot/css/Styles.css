@@ -63,3 +63,7 @@ body.modal-open div.modal-backdrop {
     margin: 0 auto;
     margin-bottom: 20px;
 }
+
+.hidden {
+    visibility: hidden;
+}

@@ -28,7 +28,7 @@ Longitude: @Html.DisplayFor(model => model.Longitude)
             var lat = @Html.DisplayFor(model => model.Latitude);
             var long = @Html.DisplayFor(model => model.Longitude);
 
-            $.getJSON("https://api.forecast.io/forecast/" + "@WindTurbine.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
+            $.getJSON("https://api.forecast.io/forecast/" + "@Forecast.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
                 var currentWindSpeed = json.currently.windSpeed;
                 var currentWindSpeedSI = currentWindSpeed * .44704;
                 var currentAirPressure =json.currently.pressure;

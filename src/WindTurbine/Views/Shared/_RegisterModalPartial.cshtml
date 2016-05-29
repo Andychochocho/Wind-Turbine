@@ -10,16 +10,16 @@
             @using (Html.BeginForm("Register", "Account", FormMethod.Post))
             {
                 <div class="modal-center">
-                    @Html.HiddenFor(m => m.UserName)
+                    @Html.LabelFor(m => m.UserName, new { @class = "hidden" })
                     @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username" })
                     <br /><br />
-                    @Html.HiddenFor(m => m.Email)
+                    @Html.LabelFor(m => m.Email, new { @class = "hidden" })
                     @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
                     <br /><br />
-                    @Html.HiddenFor(m => m.Password)
+                    @Html.LabelFor(m => m.Password, new { @class = "hidden" })
                     @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
                     <br /><br />
-                    @Html.HiddenFor(m => m.ConfirmPassword)
+                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "hidden" })
                     @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "Confirm Password" })
                     <br /><br />
                 </div>
