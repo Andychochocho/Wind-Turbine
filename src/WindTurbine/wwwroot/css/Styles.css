@@ -67,3 +67,7 @@ body.modal-open div.modal-backdrop {
 .hidden {
     visibility: hidden;
 }
+
+#mapDetails {
+    float: right;
+}
