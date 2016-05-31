@@ -1,51 +1,110 @@
-﻿@{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-@model WindTurbine.Models.Location
-
-<h3>Details</h3>
-<hr />
-<div id="mapDetails">
-    <iframe width="700"
-            height="375"
-            frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?key=@Forecast.Models.EnvironmentVariables.googleMapKey&q=@Html.DisplayFor(model=>model.Latitude),@Html.DisplayFor(model=>model.Longitude)"
-            allowfullscreen></iframe>
-</div>
-Name: @Html.DisplayFor(model => model.Name)
-<br /><br />
-@Html.DisplayFor(model => model.Time)
-<br /><br />
-Latitude: @Html.DisplayFor(model => model.Latitude)
-<br /><br />
-Longitude: @Html.DisplayFor(model => model.Longitude)
-<hr />
-
-<div class="result">
-</div>
-
-<br />
-<p>@Html.ActionLink("Back to your locations", "Index")</p>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        var result = function () {
-            var lat = @Html.DisplayFor(model => model.Latitude);
-            var long = @Html.DisplayFor(model => model.Longitude);
-
-            $.getJSON("https://api.forecast.io/forecast/" + "@Forecast.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
-                var currentWindSpeed = json.currently.windSpeed;
-                var currentWindSpeedSI = currentWindSpeed * .44704;
-                var currentAirPressure =json.currently.pressure;
-                var currentTemperature = json.currently.temperature;
-                var currentKelvin = (json.currently.temperature + 459.67) * (5/9);
-                var currentAirDensity = (currentAirPressure * 100)/(287.05 * currentKelvin)
-
-                $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + currentWindSpeed + " miles/hour" + '<br /><br />' + "Air Density: " + currentAirDensity.toFixed(3) + " kg/m³" + '<br /><br />' + "Kinetic Energy: " + ((.5) * currentAirDensity * (Math.pow(32.25, 2) * Math.PI) * Math.pow(currentWindSpeedSI, 3) * (.4)).toFixed(2) + " watts" + '</p>');
-            });
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="~/css/Styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <title>Details</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
-        result();
-    });
-</script>
+
+        #map {
+            height: 60%;
+            width: 60%;
+        }
+    </style>
+    @using System.Security.Claims
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top" id="header">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Wind Turbine</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/Locations">@User.GetUserName()</a></li>
+                    <li>@Html.Partial("_LoginPartial")</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        @model WindTurbine.Models.Location
+        <br /><br /><br />
+        <h3>Details</h3>
+        <hr />
+        Name: @Html.DisplayFor(model => model.Name)
+        <br /><br />
+        @Html.DisplayFor(model => model.Time)
+        <br /><br />
+        Latitude: @Html.DisplayFor(model => model.Latitude)
+        <br /><br />
+        Longitude: @Html.DisplayFor(model => model.Longitude)
+        <hr />
+
+        <div class="result">
+        </div>
+
+        <br />
+        <p>@Html.ActionLink("Back to your locations", "Index")</p>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+            var result = function () {
+                var lat = @Html.DisplayFor(model => model.Latitude);
+                var long = @Html.DisplayFor(model => model.Longitude);
+
+                $.getJSON("https://api.forecast.io/forecast/" + "@Forecast.Models.EnvironmentVariables.forecastKey" + "/" + lat + "," + long + "?callback=?", function (json) {
+                    var currentWindSpeed = json.currently.windSpeed;
+                    var currentWindSpeedSI = currentWindSpeed * .44704;
+                    var currentAirPressure =json.currently.pressure;
+                    var currentTemperature = json.currently.temperature;
+                    var currentKelvin = (json.currently.temperature + 459.67) * (5/9);
+                    var currentAirDensity = (currentAirPressure * 100)/(287.05 * currentKelvin)
+
+                    $('.result').html('<p> Temperature: ' + json.currently.temperature + " °F" + '<br /><br />' + "Windspeed: " + currentWindSpeed + " miles/hour" + '<br /><br />' + "Air Density: " + currentAirDensity.toFixed(3) + " kg/m³" + '<br /><br />' + "Kinetic Energy: " + ((.5) * currentAirDensity * (Math.pow(32.25, 2) * Math.PI) * Math.pow(currentWindSpeedSI, 3) * (.4)).toFixed(2) + " watts" + '</p>');
+                });
+            }
+            result();
+        });
+        </script>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom">
+            <p id="footer">&copy; @DateTime.Now.Year - WindTurbine. All Rights Reserved.</p>
+        </nav>
+    </div>
+
+    <div id="map"></div>
+    <script>
+        var map;
+        var myLatLng = {lat: @Html.DisplayFor(model => model.Latitude), lng: @Html.DisplayFor(model => model.Longitude)}
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 15
+            });
+
+            //var image = 'http://vista-eco.com/wp-content/uploads/icon-wind-turbine-1.png'
+            var turbineMarker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                icon: '/images/turbine.png'
+            });
+          }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=@Forecast.Models.EnvironmentVariables.googleMapKey&callback=initMap"
+            async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</body>
+</html>
+
