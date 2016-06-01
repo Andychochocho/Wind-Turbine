@@ -9,10 +9,10 @@
             </div>
             @using (Html.BeginForm("Login", "Account", FormMethod.Post))
             {   <div class="modal-center">
-                    @Html.LabelFor(m => m.UserName)
+                    @Html.LabelFor(m => m.UserName, new { @class = "hidden" })
                     @Html.TextBoxFor(m => m.UserName, new { placeholder = "Username" })
                     <br /><br />
-                    @Html.LabelFor(m => m.Password)
+                    @Html.LabelFor(m => m.Password, new { @class = "hidden" })
                     @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
                 </div>
                 <br />
