@@ -89,14 +89,14 @@
           function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,
-                zoom: 15
+                zoom: 18
             });
 
-            //var image = 'http://vista-eco.com/wp-content/uploads/icon-wind-turbine-1.png'
+            var image = '/images/turbine.png'
             var turbineMarker = new google.maps.Marker({
                 position: myLatLng,
                 map: map,
-                icon: '/images/turbine.png'
+                icon: image
             });
           }
     </script>

@@ -5,16 +5,16 @@
 
     <div class="locationCreateForm">
         <p>
-            @Html.LabelFor(model => model.Name)
-            @Html.EditorFor(model => model.Name)
+            @Html.LabelFor(model => model.Name, new { @class = "hidden" })
+            @Html.TextBoxFor(model => model.Name, new { placeholder = "Name" })
         </p>
         <p>
-            @Html.LabelFor(model => model.Latitude)
-            @Html.EditorFor(model => model.Latitude)
+            @Html.LabelFor(model => model.Latitude, new { @class = "hidden" })
+            @Html.TextBoxFor(model => model.Latitude, new { placeholder = "Latitude" })
         </p>
         <p>
-            @Html.LabelFor(model => model.Longitude)
-            @Html.EditorFor(model => model.Longitude)
+            @Html.LabelFor(model => model.Longitude, new { @class = "hidden" })
+            @Html.TextBoxFor(model => model.Longitude, new { placeholder = "Longitude" })
         </p>
         <input type="submit" value="Create" class="btn btn-success"  id="locationCreateButton"/>
     </div>
