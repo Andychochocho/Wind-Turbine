@@ -7,13 +7,13 @@
 @using System.Security.Claims
 
 @if (User.IsSignedIn())
-{
-    <h2>Locations</h2>
-
+{   
      <!-- Button trigger modal -->
-    <button id="newLocationIndex" class="btn btn-success" data-toggle="modal" data-target="#myModalTitle">
-        Add new location!
-    </button>
+    <div class="buttonOverlay">
+        <button id="newLocationIndex" class="btn btn-lg btn-success" data-toggle="modal" data-target="#myModalTitle">
+            Add new location!
+        </button>
+    </div>
 
     <!-- Modal -->
     <div class="modal" fade" id="myModalTitle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -31,9 +31,9 @@
             </div>
         </div>
     </div>
-
-    <iframe src="https://embed.windyty.com/?45.514,-122.651,200,message,metric.wind.m/s" width="1150" height="415" frameborder="0"></iframe>
-
+    <div class="homepageMap">
+        <iframe src="https://embed.windyty.com/?45.514,-122.651,275,message,metric.wind.m/s" width="1368" height="570" frameborder="0"></iframe>
+    </div>
 }
 
 else
